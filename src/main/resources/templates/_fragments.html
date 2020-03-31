@@ -49,22 +49,26 @@
             </div>
             <div class="three wide column">
                 <h4 class="ui inverted  header m-text-thin m-text-spaced">最新博客</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">用户故事</a>
-                    <a href="#" class="item">关于刻意联系的清单</a>
-                    <a href="#" class="item">失败要趁早</a>
+                <div id="newblog-container">
+                    <div class="ui inverted link list" th:fragment="newblogList">
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}">用户故事（User Story）</a>
+                        <!--/*-->
+                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                        <!--*/-->
+                    </div>
                 </div>
             </div>
             <div class="three wide column">
                 <h4 class="ui inverted header m-text-thin m-text-spaced">联系我们</h4>
                 <div class="ui inverted link list">
-                    <a href="#" class="item">email: 280711156@qq.com</a>
-                    <a href="#" class="item">qq: 280711156</a>
+                    <a href="#" class="item">Email: 280711156@qq.com</a>
+                    <a href="#" class="item">QQ: 280711156</a>
                 </div>
             </div>
             <div class="seven wide column">
                 <h4 class="ui inverted header m-text-thin m-text-spaced">个人介绍</h4>
-                <p class="m-text-thin m-text-spaced m-opacity-mini">实打实大苏打撒大苏打撒旦撒实打实打算阿三大苏打实打实打算萨达萨达是啊实打实大苏打阿三大苏打...</p>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
             </div>
         </div>
         <div class="ui inverted section divider"></div>
@@ -80,5 +84,8 @@
     <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
     <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
 </th:block>
+<script>
+    $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+</script>
 </body>
 </html>
